@@ -1,0 +1,41 @@
+name: API testing job
+
+on:
+  push:
+    branches: [master]
+#  schedule:
+#    - cron: '0 0 * * 1'   # At 00:00 on Monday
+#  pull_request:
+#    branches: [ master ]
+
+jobs:
+  run-api-test:
+    runs-on: ubuntu-latest
+    container: nxthich/testng-allure:latest
+    steps:
+      - name: Checkout repo content
+        uses: actions/checkout@v3   # Checkout the repository content to github runner
+
+#      - name: Setup python
+#        uses: actions/setup-python@v4
+#        with:
+#          python-version: '3.10'    # Install the python version needed
+#
+#      - name: Install python packages
+#        run: |
+#          python -m venv .venv
+#          source  .venv/bin/activate
+#          python -m pip install --upgrade pip
+#          pip install -r requirements.txt
+
+      - name: Execute the test    # Execute the test
+        run: |
+          cd $GITHUB_WORKSPACE
+          mvn clean test -DxmlSuite="src/test/resources/test-suites/Regression.xml"
+          allure generate allure-results
+
+      - name: Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report

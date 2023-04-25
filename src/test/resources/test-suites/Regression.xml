@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" verbose="1" >
+    <test name="Jira - Issue E2E" >
+        <classes>
+            <class name="test.JiraIssueCRUD">
+                <methods>
+                    <include name="TestCreatingIssue" />
+                    <include name="TestE2EFlow" />
+                </methods>
+            </class>
+            <!--<class name="test.JiraIssueCRUD" />-->
+        </classes>
+    </test>
+</suite>
