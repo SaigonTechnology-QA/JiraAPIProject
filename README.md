@@ -8,11 +8,15 @@
 
 ![Alt text](./assets/JavaHome.png?raw=true "JAVA_HOME")
 
+- Check if `JAVA_HOME` is configured properly or not by typing the command `echo %JAVA_HOME%` and `java -version` on terminal/cmd
+
 3. Download and unzip latest Maven source file: [Link download](https://dlcdn.apache.org/maven/maven-3)
 - Create `MAVEN_HOME` environment variables
 - Add `MAVEN_HOME` to Path: `%MAVEN_HOME%\bin`
 
-![Alt text](./assets/MavenHome.png?raw=true "JAVA_HOME")
+![Alt text](./assets/MavenHome.png?raw=true "MAVEN_HOME")
+
+- Check if `MAVEN_HOME` is configured properly or not by typing the command `echo %MAVEN_HOME%` and `mvn -v` on terminal/cmd
 
 4. Open this base project
 5. Project structure settings:
@@ -34,26 +38,28 @@
 
 ![Alt text](./assets/AllureHome.png?raw=true "ALLURE_HOME")
 
+- Check if `ALLURE_HOME` is configured properly or not by typing the command `echo %ALLURE_HOME%` and `allure --version` on terminal/cmd
+
 8. Install dependencies: `mvn clean install`
 9. Prepare test data on Jira:
 - Create a project on Jira then get the `product key`, `base uri` and create `API token` at: [Link here](https://id.atlassian.com/manage-profile/security/api-tokens)
 - Update the variables `baseUri`, `projectKey` in file `src/test/java/test/BaseTest.java`
 
-![Alt text](./assets/Project_Uri_Key.png?raw=true "ALLURE_HOME")
+![Alt text](./assets/Project_Uri_Key.png?raw=true "Project_Uri_Key")
 
 - Update the variables `email`, `apiToken` in file `src/test/java/model/RequestCapability.java`
 
-![Alt text](./assets/Email_APIToken.png?raw=true "ALLURE_HOME")
+![Alt text](./assets/Email_APIToken.png?raw=true "Email_APIToken")
 
 10. Run the tests by commandline: `mvn clean test -DxmlSuite="src/test/resources/test-suites/Regression.xml"`
 
-![Alt text](./assets/ExecuteTest.png?raw=true "ALLURE_HOME")
+![Alt text](./assets/ExecuteTest.png?raw=true "ExecuteTest")
 
 11. Generate Allure report by commandline:
 - `allure generate allure-results`
 - `allure open`
 
-![Alt text](./assets/Report.png?raw=true "ALLURE_HOME")
+![Alt text](./assets/Report.png?raw=true "Report")
 
 ## Run on GitHub Actions
 1. Create Docker image for CI/CD (GitHub Actions, CircleCI)
