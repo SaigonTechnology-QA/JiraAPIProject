@@ -17,6 +17,7 @@ public class ProjectInfo implements RequestCapability {
     private List<Map<String, String>> issueTypes;
     Map<String, List<Map<String, String>>> projectInfo;
 
+    // Constructor
     // Alt + Insert
     public ProjectInfo(String baseUri, String projectKey) {
         this.baseUri = baseUri;
