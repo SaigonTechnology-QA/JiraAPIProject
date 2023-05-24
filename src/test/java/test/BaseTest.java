@@ -17,8 +17,8 @@ public class BaseTest implements RequestCapability {
     @BeforeSuite
     public void beforeSuite(){
         encodeCredStr = AuthenticationHandler.encodeCredStr(email, apiToken);
-        baseUri = "<Base_URI>";
-        projectKey = "<Project_Key>";
+        baseUri = "https://nxthich.atlassian.net/";
+        projectKey = "SMAR";
     }
 
     @BeforeTest

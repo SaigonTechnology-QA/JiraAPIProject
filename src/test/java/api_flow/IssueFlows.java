@@ -36,6 +36,7 @@ public class IssueFlows {
         transitionTypeMap.put("31", "Done");
     }
 
+    // Constructor
     public IssueFlows(RequestSpecification request, String baseUri, String projectKey, String issueTypeStr) {
         this.request = request;
         this.baseUri = baseUri;
